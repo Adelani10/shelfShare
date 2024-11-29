@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDate;
@@ -15,10 +14,11 @@ import java.util.List;
 @Entity
 @Data
 @SuperBuilder
+@Table(name = "_user")
 public class User {
 
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   @Column(unique = true)
   private String email;
@@ -30,7 +30,7 @@ public class User {
   private boolean enabled;
   @ManyToMany(fetch = FetchType.EAGER)
   private List<Role> roleList;
-  @OneToMany(mappedBy = "user")
+//  @OneToMany(mappedBy = "user")
 //  private List<BookTransactionHistory> historyList;
 
   @CreatedDate

@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.scheduling.annotation.EnableAsync;
 
+import java.time.LocalDateTime;
+
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
 @EnableAsync
 @SpringBootApplication
@@ -22,7 +24,7 @@ public class ShelfShareApplication {
 	public CommandLineRunner runner(RoleRepository roleRepository) {
 		return args -> {
 			if (roleRepository.findByName("USER").isEmpty()) {
-				roleRepository.save(Role.builder().name("USER").build());
+				roleRepository.save(Role.builder().name("USER").createdDate(LocalDateTime.now()).build());
 			}
 		};
 	}
