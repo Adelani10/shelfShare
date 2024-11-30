@@ -53,17 +53,16 @@ public class AuthenticationService {
 
   public void register(RegistrationRequest request) throws MessagingException {
     var roleList = roleRepository.findByName("USER")
-        .orElseThrow(() -> new IllegalArgumentException("Role USER not initialized"));
+        .orElseThrow(() -> new IllegalStateException("Role USER not initialized"));
 
 
     User user = User.builder()
         .email(request.getEmail())
-        .firstname(request.getFirstName())
-        .lastname(request.getPassword())
+        .firstname(request.getFirstname())
+        .lastname(request.getLastname())
         .password(encoder.encode(request.getPassword()))
         .accountLocked(false)
         .enabled(false)
-        .createdDate(LocalDateTime.now())
         .roleList(List.of(roleList))
         .build();
      authenticationRepository.save(user);

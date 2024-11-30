@@ -17,11 +17,11 @@ public class RegistrationRequest {
 
   @NotEmpty(message = "FirstName cannot be empty")
   @NotNull(message = "FirstName cannot be null")
-  private String firstName;
+  private String firstname;
 
   @NotEmpty(message = "LastName cannot be empty")
   @NotNull(message = "LastName cannot be null")
-  private  String lastName;
+  private  String lastname;
 
   @NotEmpty(message = "Email cannot be empty")
   @NotNull(message = "Email cannot be null")
@@ -31,7 +31,7 @@ public class RegistrationRequest {
 
   @NotEmpty(message = "Password cannot be empty")
   @NotNull(message = "Password cannot be null")
-  @Size(min = 8, message = "Passwords mus be at least 8 chars long")
+  @Size(min = 8, message = "Passwords must be at least 8 chars long")
   private String password;
 
 }

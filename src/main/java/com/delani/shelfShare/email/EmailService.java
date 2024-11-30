@@ -61,7 +61,7 @@ public class EmailService {
     context.setVariables(properties);
 
     var template = templateEngine.process(templateName, context);
-    mimeMessageHelper.setText(template);
+    mimeMessageHelper.setText(template, true);
 
     mailSender.send(mimeMessage);
 

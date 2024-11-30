@@ -24,7 +24,7 @@ public class ShelfShareApplication {
 	public CommandLineRunner runner(RoleRepository roleRepository) {
 		return args -> {
 			if (roleRepository.findByName("USER").isEmpty()) {
-				roleRepository.save(Role.builder().name("USER").createdDate(LocalDateTime.now()).build());
+				roleRepository.save(Role.builder().name("USER").build());
 			}
 		};
 	}
