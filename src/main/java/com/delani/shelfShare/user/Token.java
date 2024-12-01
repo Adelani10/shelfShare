@@ -21,7 +21,6 @@ public class Token {
 
   @Column(unique = true)
   private String token;
-
   private LocalDateTime createdAt;
   private LocalDateTime expiresAt;
   private LocalDateTime validatedAt;

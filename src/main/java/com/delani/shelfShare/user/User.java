@@ -1,5 +1,6 @@
 package com.delani.shelfShare.user;
 
+import com.delani.shelfShare.history.BookTransactionHistory;
 import com.delani.shelfShare.role.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -36,8 +37,8 @@ public class User {
   private boolean enabled;
   @ManyToMany(fetch = FetchType.EAGER)
   private List<Role> roleList;
-//  @OneToMany(mappedBy = "user")
-//  private List<BookTransactionHistory> historyList;
+  @OneToMany(mappedBy = "user")
+  private List<BookTransactionHistory> historyList;
 
   @CreatedDate
   @Column(nullable = false, updatable = false)
