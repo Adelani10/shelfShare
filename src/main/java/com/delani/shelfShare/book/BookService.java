@@ -159,7 +159,7 @@ public class BookService {
 
   }
 
-  public Integer borrowBook (int bookId, Authentication currUser) {
+  public Integer borrowBook (int bookId, Authentication currUser)  {
     var user = ((UserPrincipal) currUser.getPrincipal()).getUser();
 
     Book book = bookRepository.findById(bookId)

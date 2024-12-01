@@ -3,10 +3,7 @@ package com.delani.shelfShare.feedback;
 
 import com.delani.shelfShare.book.Book;
 import com.delani.shelfShare.common.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
