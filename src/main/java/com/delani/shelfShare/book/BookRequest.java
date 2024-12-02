@@ -6,8 +6,6 @@ import jakarta.validation.constraints.NotNull;
 
 public record BookRequest (
 
-  Integer id,
-
   @NotNull(message = "Title can't be empty")
   @NotEmpty(message = "Title can't be empty")
   String title,
